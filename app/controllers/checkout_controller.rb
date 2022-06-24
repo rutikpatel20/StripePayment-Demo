@@ -5,6 +5,7 @@ class CheckoutController < ApplicationController
       mode: "payment",
       # Remove the payment_method_types parameter
       # to manage payment methods in the Dashboard
+      customer: current_user.stripe_customer_id,
       payment_method_types: ["card"],
       line_items: [{
         name: product.name,

@@ -13,4 +13,3 @@ class User < ApplicationRecord
     update(stripe_customer_id: customer.id)
   end
 end
- 
