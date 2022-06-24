@@ -9,7 +9,7 @@ class CheckoutController < ApplicationController
       line_items: [{
         name: product.name,
         amount: product.price,
-        currency: "usd",
+        currency: "inr",
         quantity: 1,
       }],
       success_url: root_url,

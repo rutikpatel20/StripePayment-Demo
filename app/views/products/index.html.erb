@@ -13,7 +13,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency(product.price/100, unit: "Rs") %></td>
         <td><%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
