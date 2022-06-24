@@ -7,6 +7,7 @@
         <thead class="table-secondary">
           <td class="text-center"> Name </td>
           <td class="text-center"> Price </td>
+          <td class="text-center"> Stripe Product ID </td>
           <td class="text-center"> Sales Count  </td>
           <td class="text-center"> Payment  </td>
           <td colspan=3 class="text-center"> Action </td>
@@ -15,6 +16,7 @@
           <tr>
             <td class="text-center"> <%= link_to product.name, product_path(product) %> </td>
             <td class="text-center"><%= number_to_currency(product.price/100, unit: "Rs") %></td>
+            <td class="text-center"><%= product.stripe_product_id %></td>
             <td class="text-center"><%= product.sales_count %></td>
             <td class="text-center"> <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %> </td>
             <td class="text-center"><%= button_to "Show",product_path(product),method: :get, class:"btn-success border-0 rounded-pill shadow px-3 py-2" %></td>
