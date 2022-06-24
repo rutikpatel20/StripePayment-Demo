@@ -1,26 +1,29 @@
 <p id="notice"><%= notice %></p>
-<h1>Products</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Payment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= number_to_currency(product.price/100, unit: "Rs") %></td>
-        <td><%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'New Product', new_product_path %>
+<div class="container">
+  <h1>Products</h1>
+  <div>
+    <table class="table table-info table-striped">
+      <ol class="fs-2">
+        <thead class="table-secondary">
+          <td class="text-center"> Name </td>
+          <td class="text-center"> Price </td>
+          <td class="text-center"> Payment  </td>
+          <td colspan=3 class="text-center"> Action </td>
+        </thead>
+        <% @products.each do |product| %>
+          <tr>
+            <td class="text-center"> <%= link_to product.name, product_path(product) %> </td>
+            <td class="text-center"><%= number_to_currency(product.price/100, unit: "Rs") %></td>
+            <td class="text-center"> <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %> </td>
+            <td class="text-center"><%= button_to "Show",product_path(product),method: :get, class:"btn-success border-0 rounded-pill shadow px-3 py-2" %></td>
+            <td class="text-center"><%= button_to "Edit",edit_product_path(product),method: :get, class:"btn-primary border-0 rounded-pill shadow px-3 py-2" %></td>
+            <td class="text-center"><%= button_to "Delete",product_path(product),method: :delete, class:"btn-danger border-0 rounded-pill shadow px-3 py-2",  data: { confirm: 'Are you sure?' }  %></td>
+          </tr>
+        <% end %>
+      </ol>
+    </table>
+  </div>
+  <div class="d-flex">
+    <%= button_to "Add New product", new_product_path, method: :get ,class:"btn-warning border-0 rounded-pill shadow p-3 m-3" %>
+  </div>
+</div>
