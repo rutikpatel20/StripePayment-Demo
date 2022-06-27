@@ -20,7 +20,7 @@
             <td class="text-center"><%= product.stripe_product_id %></td>
             <td class="text-center"><%= product.stripe_price_id %></td>
             <td class="text-center"><%= product.sales_count %></td>
-            <td class="text-center"> <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %> </td>
+            <td class="text-center"> <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true, data: {disable_with: "Validating.."} %> </td>
             <td class="text-center"><%= button_to "Show",product_path(product),method: :get, class:"btn-success border-0 rounded-pill shadow px-3 py-2" %></td>
             <td class="text-center"><%= button_to "Edit",edit_product_path(product),method: :get, class:"btn-primary border-0 rounded-pill shadow px-3 py-2" %></td>
             <td class="text-center"><%= button_to "Delete",product_path(product),method: :delete, class:"btn-danger border-0 rounded-pill shadow px-3 py-2",  data: { confirm: 'Are you sure?' }  %></td>
