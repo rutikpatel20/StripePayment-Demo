@@ -1,1 +1,8 @@
 <h1>Payment Successfull</h1>
+Checkout Status : <%= @session_with_expand.payment_status %>
+<br>
+Amount Paid : <%= @session_with_expand.amount_total/100.to_d %>
+<%= @session_with_expand.currency %>
+<br>
+<hr>
+<%= @session_with_expand %>
