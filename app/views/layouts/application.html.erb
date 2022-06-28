@@ -28,14 +28,14 @@
       <%= link_to "Register", new_user_registration_path %>
     <% end %>
     <hr>
-    <h1>Shopping Cart</h1>
-    All Details of Cart = <%= @cart %> <br>
-    <br>
-    <% @cart.each do |product| %>
-      Added Product :- <%= product.name %>
-      <br>
-    <% end %>
     <% if @cart.present? %>
+      <h1>Shopping Cart</h1>
+      All Details of Cart = <%= @cart %> <br>
+      <br>
+      <% @cart.each do |product| %>
+        Added Product :- <%= product.name %>
+        <br>
+      <% end %>
       <%= button_to "Buy Now", checkout_create_path, remote: true, data: {disable_with: "Validating.."} %>
     <% end %>
     <hr>
