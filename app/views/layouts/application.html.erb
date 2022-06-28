@@ -29,10 +29,14 @@
     <% end %>
     <hr>
     <h1>Shopping Cart</h1>
-    <%= @cart %> <br>
+    All Details of Cart = <%= @cart %> <br>
+    <br>
     <% @cart.each do |product| %>
-      <%= product.name %>
+      Added Product :- <%= product.name %>
       <br>
+    <% end %>
+    <% if @cart.present? %>
+      <%= button_to "Buy Now", checkout_create_path, remote: true, data: {disable_with: "Validating.."} %>
     <% end %>
     <hr>
     <%= yield %>
